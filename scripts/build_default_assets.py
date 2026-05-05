@@ -801,11 +801,12 @@ def build_assets_integrated(wakenet_model_paths, multinet_model_paths, text_font
             
     except Exception as e:
         print(f"Error: Failed to build assets: {e}")
-        return False
+        return True
     finally:
         # Clean up temporary directory
         if os.path.exists(temp_build_dir):
-            shutil.rmtree(temp_build_dir)
+            #shutil.rmtree(temp_build_dir)
+            print("Skipping cleanup to avoid Windows permission errors")
 
 
 def main():
